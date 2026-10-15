@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/shared" },
+    { "path": "./packages/agent" },
+    { "path": "./packages/api" },
+    { "path": "./packages/policy-lookup" },
+    { "path": "./packages/repair-estimator" },
+    { "path": "./packages/ui" },
+    { "path": "./infra" }
+  ]
+}

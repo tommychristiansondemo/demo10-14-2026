@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClaimClarify Explorer — Class Project Knowledge</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="explorer">
+      <header class="explorer__header">
+        <h1>ClaimClarify Explorer</h1>
+        <p class="explorer__subtitle">
+          Ask about how the ClaimClarify application was designed and deployed,
+          which AWS resources and LLM it uses, where its data comes from, and
+          how this Explorer tool itself works. You can also view live system
+          logs, including the Explorer chatbot's own prompt/reasoning entries.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="chat-title">
+        <h2 id="chat-title">Ask the project assistant</h2>
+        <ul id="chat-history" class="chat__history" aria-live="polite"></ul>
+        <div id="chat-pending" class="chat__pending" role="status" hidden>
+          <span class="spinner" aria-hidden="true"></span> Thinking…
+        </div>
+        <p id="chat-error" class="chat__error" role="alert" hidden></p>
+        <form id="chat-form" class="chat__form" autocomplete="off">
+          <label class="sr-only" for="chat-input">Your question</label>
+          <textarea
+            id="chat-input"
+            class="chat__input"
+            rows="2"
+            maxlength="4000"
+            placeholder="e.g. How many types of AWS resources does ClaimClarify use? Which LLM? Where does the policy data come from?"
+            required
+          ></textarea>
+          <button id="chat-submit" class="btn" type="submit">Ask</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="logs-title">
+        <h2 id="logs-title">Live system logs</h2>
+        <div class="logs__controls">
+          <label class="checkbox">
+            <input type="checkbox" id="logs-reasoning" />
+            Show LLM reasoning (prompt/response) entries only
+          </label>
+          <button id="logs-refresh" class="btn btn--secondary" type="button">
+            Refresh logs
+          </button>
+        </div>
+        <p id="logs-error" class="chat__error" role="alert" hidden></p>
+        <pre id="logs-output" class="logs__output" aria-live="polite">Click “Refresh logs”.</pre>
+      </section>
+
+      <footer class="explorer__footer">
+        <a id="knowledge-link" href="./projectknowledge.md" target="_blank" rel="noopener">
+          View the raw project knowledge document
+        </a>
+      </footer>
+    </main>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

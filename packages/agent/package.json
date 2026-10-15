@@ -1,0 +1,15 @@
+{
+  "name": "@claimclarify/agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ClaimClarify Bedrock_Agent orchestration and tool-invocation layer",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@claimclarify/shared": "0.1.0"
+  }
+}

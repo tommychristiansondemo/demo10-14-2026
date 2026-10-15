@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClaimClarify — Claims Triage Assistant</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="chat" aria-labelledby="chat-title">
+      <header class="chat__header">
+        <h1 id="chat-title">ClaimClarify</h1>
+        <p class="chat__subtitle">Ask about a claim: coverage, deductibles, prior claims, or a repair estimate.</p>
+        <p class="chat__explorer-link">
+          📚 Students: explore how this app was designed and deployed, ask the
+          project assistant, and view live system logs at
+          <a href="https://explorer.awsteach.com/" target="_blank" rel="noopener">ClaimClarify Explorer</a>.
+        </p>
+      </header>
+
+      <!-- Conversation history (Req 1.1, 1.4). -->
+      <ul id="chat-history" class="chat__history" aria-live="polite" aria-label="Conversation history"></ul>
+
+      <!-- Pending-response indicator (Req 1.5), hidden until a request is in flight. -->
+      <div id="chat-pending" class="chat__pending" role="status" aria-live="polite" hidden aria-hidden="true">
+        <span class="chat__spinner" aria-hidden="true"></span>
+        <span>Waiting for a response…</span>
+      </div>
+
+      <!-- Validation / error / timeout message (Req 1.3, 1.6, 1.7). -->
+      <p id="chat-error" class="chat__error" role="alert" hidden></p>
+
+      <!-- Message input + submit (Req 1.1, 1.2, 1.3). -->
+      <form id="chat-form" class="chat__form" autocomplete="off">
+        <label class="chat__label" for="chat-input">Your message</label>
+        <textarea
+          id="chat-input"
+          class="chat__input"
+          name="message"
+          rows="3"
+          maxlength="2000"
+          placeholder="e.g. Is policy POL-100001 covered for a front-end collision?"
+          required
+        ></textarea>
+        <button id="chat-submit" class="chat__submit" type="submit">Send</button>
+      </form>
+    </main>
+
+    <!-- Same-origin bundle only; no secrets embedded. -->
+    <script src="./app.js" defer></script>
+  </body>
+</html>

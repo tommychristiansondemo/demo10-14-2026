@@ -1,0 +1,11 @@
+{
+  "app": "node dist/app.js",
+  "watch": {
+    "include": ["src/**"],
+    "exclude": ["dist", "node_modules", "cdk.out", "**/*.test.ts"]
+  },
+  "context": {
+    "@aws-cdk/core:newStyleStackSynthesis": true,
+    "@aws-cdk/aws-iam:minimizePolicies": true
+  }
+}
